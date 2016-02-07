@@ -7,19 +7,31 @@ output:
 
 
 ## Loading and preprocessing the data
+'''{r, echo=TRUE, tidy=TRUE}
+library(lattice)
+activity <- read.csv("activity.csv")
 
+str(activity)
+head(activity)
 
+act.no.na <- activity[!is.na(activity),]
+'''
 
 ## What is mean total number of steps taken per day?
-
-
+'''{r, echo=TRUE, tidy=TRUE}
+act.date.sum <- aggregate(act.no.na$steps, by=list(date=act.no.na$date), FUN=sum)
+hist(act.date.sum$x)
+'''
 
 ## What is the average daily activity pattern?
-
-
+'''{r, echo=TRUE, tidy=TRUE}
+'''
 
 ## Imputing missing values
-
+'''{r, echo=TRUE, tidy=TRUE}
+'''
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+'''{r, echo=TRUE, tidy=TRUE}
+'''
